@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Serve And Protect</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+scroll-behavior:smooth;
+}
+
+body{
+font-family:'Montserrat',sans-serif;
+background:#050505;
+color:white;
+overflow-x:hidden;
+}
+
+:root{
+--gold:#d4a53f;
+--black:#050505;
+--gray:#111111;
+}
+
+header{
+position:fixed;
+top:0;
+width:100%;
+background:rgba(0,0,0,0.95);
+backdrop-filter:blur(8px);
+z-index:999;
+border-bottom:1px solid rgba(255,255,255,0.05);
+}
+
+nav{
+padding:14px 6%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+.logo{
+font-size:1rem;
+font-weight:800;
+color:var(--gold);
+letter-spacing:1px;
+}
+
+nav ul{
+display:flex;
+gap:18px;
+list-style:none;
+flex-wrap:wrap;
+justify-content:flex-end;
+}
+
+nav ul li a{
+text-decoration:none;
+color:white;
+font-size:0.82rem;
+font-weight:600;
+transition:0.3s;
+}
+
+nav ul li a:hover{
+color:var(--gold);
+}
+
+.hero{
+min-height:100vh;
+display:flex;
+align-items:center;
+padding:130px 6% 80px;
+background:
+linear-gradient(rgba(0,0,0,0.90), rgba(0,0,0,0.95));
+}
+
+.hero-content{
+max-width:700px;
+}
+
+.hero h1{
+font-size:2.5rem;
+line-height:1.2;
+margin-bottom:22px;
+font-weight:800;
+}
+
+.hero h1 span{
+color:var(--gold);
+}
+
+.hero p{
+font-size:0.95rem;
+line-height:1.9;
+color:#d0d0d0;
+margin-bottom:35px;
+}
+
+.buttons{
+display:flex;
+gap:15px;
+flex-wrap:wrap;
+}
+
+.btn{
+padding:14px 24px;
+border-radius:10px;
+text-decoration:none;
+font-size:0.82rem;
+font-weight:700;
+transition:0.4s;
+}
+
+.gold{
+background:var(--gold);
+color:black;
+}
+
+.gold:hover{
+transform:translateY(-4px);
+}
+
+.outline{
+border:1px solid var(--gold);
+color:var(--gold);
+}
+
+.outline:hover{
+background:var(--gold);
+color:black;
+}
+
+section{
+padding:85px 6%;
+}
+
+.title{
+text-align:center;
+margin-bottom:50px;
+}
+
+.title h2{
+font-size:2rem;
+color:var(--gold);
+margin-bottom:10px;
+}
+
+.title p{
+font-size:0.9rem;
+color:#cfcfcf;
+line-height:1.8;
+}
+
+.box{
+background:#101010;
+padding:35px;
+border-radius:18px;
+margin-bottom:35px;
+border:1px solid rgba(255,255,255,0.05);
+transition:0.4s;
+}
+
+.box:hover{
+border-color:var(--gold);
+transform:translateY(-5px);
+}
+
+.box h3{
+font-size:1.4rem;
+margin-bottom:18px;
+color:var(--gold);
+}
+
+.box p{
+font-size:0.92rem;
+line-height:1.9;
+color:#d7d7d7;
+margin-bottom:20px;
+}
+
+.box ul{
+padding-left:18px;
+}
+
+.box ul li{
+margin-bottom:12px;
+line-height:1.8;
+font-size:0.9rem;
+color:#d0d0d0;
+}
+
+.quick-buttons{
+display:flex;
+gap:15px;
+flex-wrap:wrap;
+justify-content:center;
+margin-top:30px;
+}
+
+.quick-buttons a{
+padding:12px 18px;
+background:#111;
+border:1px solid var(--gold);
+border-radius:10px;
+text-decoration:none;
+color:var(--gold);
+font-size:0.8rem;
+font-weight:700;
+transition:0.3s;
+}
+
+.quick-buttons a:hover{
+background:var(--gold);
+color:black;
+}
+
+.contact{
+background:#090909;
+text-align:center;
+}
+
+.contact h2{
+font-size:2rem;
+margin-bottom:20px;
+color:var(--gold);
+}
+
+.contact p{
+font-size:0.92rem;
+line-height:1.9;
+color:#d5d5d5;
+margin-bottom:35px;
+}
+
+.contact-box{
+display:flex;
+justify-content:center;
+gap:20px;
+flex-wrap:wrap;
+}
+
+.contact-item{
+background:#121212;
+padding:25px;
+border-radius:15px;
+min-width:250px;
+}
+
+.contact-item h4{
+margin-bottom:12px;
+color:var(--gold);
+font-size:1rem;
+}
+
+.contact-item a{
+color:white;
+text-decoration:none;
+font-size:0.9rem;
+}
+
+footer{
+background:black;
+padding:30px;
+text-align:center;
+border-top:1px solid rgba(255,255,255,0.05);
+}
+
+footer p{
+font-size:0.82rem;
+line-height:1.8;
+color:#a9a9a9;
+}
+
+.whatsapp{
+position:fixed;
+right:18px;
+bottom:18px;
+width:60px;
+height:60px;
+background:#25d366;
+display:flex;
+justify-content:center;
+align-items:center;
+border-radius:50%;
+text-decoration:none;
+color:white;
+font-size:1.6rem;
+box-shadow:0 10px 25px rgba(0,0,0,0.4);
+z-index:999;
+}
+
+.fade{
+opacity:0;
+transform:translateY(40px);
+transition:1s;
+}
+
+.fade.show{
+opacity:1;
+transform:translateY(0);
+}
+
+@media(max-width:768px){
+
+.hero h1{
+font-size:1.8rem;
+}
+
+.title h2{
+font-size:1.5rem;
+}
+
+.box h3{
+font-size:1.2rem;
+}
+
+nav{
+flex-direction:column;
+gap:15px;
+}
+
+nav ul{
+justify-content:center;
+}
+
+.hero{
+padding-top:170px;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<nav>
+
+<div class="logo">
+SERVE AND PROTECT
+</div>
+
+<ul>
+<li><a href="#inicio">Início</a></li>
+<li><a href="#cargas">Cargas</a></li>
+<li><a href="#operacional">Operacional</a></li>
+<li><a href="#uniformes">Uniformes</a></li>
+<li><a href="#portaria">Portaria</a></li>
+<li><a href="#contato">Contato</a></li>
+</ul>
+
+</nav>
+
+</header>
+
+<section class="hero" id="inicio">
+
+<div class="hero-content fade">
+
+<h1>
+SEGURANÇA E <span>PROTEÇÃO</span><br>
+COM ATUAÇÃO PROFISSIONAL
+</h1>
+
+<p>
+A Serve And Protect oferece soluções em segurança operacional,
+monitoramento estratégico, apoio preventivo, proteção patrimonial
+e acompanhamento em rodovias, empresas e áreas operacionais.
+
+Nossa equipe atua com presença profissional, organização,
+controle e suporte contínuo para garantir mais segurança
+e tranquilidade.
+</p>
+
+<div class="buttons">
+
+<a href="#contato" class="btn gold">
+SOLICITAR ORÇAMENTO
+</a>
+
+<a href="#cargas" class="btn outline">
+VER SERVIÇOS
+</a>
+
+</div>
+
+<div class="quick-buttons">
+
+<a href="#cargas">
+SEGURANÇA DE CARGAS
+</a>
+
+<a href="#operacional">
+OPERACIONAL
+</a>
+
+<a href="#uniformes">
+UNIFORMES
+</a>
+
+<a href="#portaria">
+PORTARIA
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+<section id="cargas">
+
+<div class="title fade">
+
+<h2>SEGURANÇA PARA CAMINHÕES E CARGAS</h2>
+
+<p>
+Serviços especializados em prevenção, vigilância
+e apoio operacional em rodovias.
+</p>
+
+</div>
+
+<div class="box fade">
+
+<h3>Proteção em Rodovias</h3>
+
+<p>
+A empresa realiza acompanhamento estratégico de caminhões,
+motoristas e operações logísticas, oferecendo suporte
+preventivo durante deslocamentos e operações em estrada.
+</p>
+
+<p>
+O serviço inclui monitoramento, apoio em paradas,
+presença operacional e atuação preventiva em áreas
+consideradas de risco.
+</p>
+
+<ul>
+
+<li>Proteção em postos e paradas estratégicas</li>
+
+<li>Monitoramento preventivo de cargas</li>
+
+<li>Apoio em emergências e panes</li>
+
+<li>Presença operacional 24 horas</li>
+
+<li>Suporte contínuo ao motorista</li>
+
+<li>Atendimento estratégico em rodovias</li>
+
+</ul>
+
+</div>
+
+</section>
+
+<section id="operacional">
+
+<div class="title fade">
+
+<h2>SEGURANÇA OPERACIONAL</h2>
+
+<p>
+Atuação preventiva com organização,
+controle e suporte técnico.
+</p>
+
+</div>
+
+<div class="box fade">
+
+<h3>Acompanhamento Operacional</h3>
+
+<p>
+A Serve And Protect oferece suporte para operações
+externas, equipes técnicas e ambientes empresariais,
+mantendo controle preventivo e presença estratégica.
+</p>
+
+<ul>
+
+<li>Monitoramento de áreas externas</li>
+
+<li>Controle preventivo operacional</li>
+
+<li>Proteção patrimonial</li>
+
+<li>Atendimento diurno e noturno</li>
+
+<li>Equipe treinada e preparada</li>
+
+<li>Compromisso com organização e segurança</li>
+
+</ul>
+
+</div>
+
+<div class="box fade">
+
+<h3>Monitoramento Estratégico</h3>
+
+<p>
+A atuação inclui apoio operacional em áreas
+de risco, acompanhamento técnico e suporte
+preventivo para maior tranquilidade e segurança.
+</p>
+
+<ul>
+
+<li>Controle de operações externas</li>
+
+<li>Suporte em monitoramento técnico</li>
+
+<li>Presença ostensiva preventiva</li>
+
+<li>Atendimento contínuo</li>
+
+</ul>
+
+</div>
+
+</section>
+
+<section id="uniformes">
+
+<div class="title fade">
+
+<h2>UNIFORMES PROFISSIONAIS</h2>
+
+<p>
+Padronização visual, identidade profissional
+e apresentação corporativa.
+</p>
+
+</div>
+
+<div class="box fade">
+
+<h3>Uniformes de Limpeza e Conservação</h3>
+
+<p>
+Os uniformes apresentados possuem acabamento
+profissional, tecido confortável e visual moderno,
+transmitindo organização e confiança.
+</p>
+
+<ul>
+
+<li>Camisa polo personalizada</li>
+
+<li>Calça profissional padronizada</li>
+
+<li>Avental personalizado</li>
+
+<li>Boné institucional</li>
+
+<li>Identificação funcional</li>
+
+<li>Bordado de alta qualidade</li>
+
+<li>Cores azul marinho, dourado e cinza</li>
+
+<li>Ideal para empresas e condomínios</li>
+
+</ul>
+
+</div>
+
+</section>
+
+<section id="portaria">
+
+<div class="title fade">
+
+<h2>PORTARIA E CONTROLE</h2>
+
+<p>
+Profissionalismo, presença e organização visual.
+</p>
+
+</div>
+
+<div class="box fade">
+
+<h3>Uniforme Padrão de Portaria</h3>
+
+<p>
+O uniforme da equipe de portaria foi desenvolvido
+para transmitir autoridade visual, respeito e
+padronização profissional.
+</p>
+
+<ul>
+
+<li>Camisa social preta personalizada</li>
+
+<li>Calça social profissional</li>
+
+<li>Crachá de identificação</li>
+
+<li>Bordado institucional</li>
+
+<li>Equipe treinada</li>
+
+<li>Atendimento organizado e profissional</li>
+
+<li>Visual elegante e corporativo</li>
+
+</ul>
+
+</div>
+
+</section>
+
+<section class="contact" id="contato">
+
+<div class="fade">
+
+<h2>ENTRE EM CONTATO</h2>
+
+<p>
+Solicite informações, atendimento operacional
+ou orçamento personalizado.
+</p>
+
+<div class="contact-box">
+
+<div class="contact-item">
+
+<h4>WhatsApp</h4>
+
+<a href="https://wa.me/5521972862290" target="_blank">
+
+(21) 97286-2290
+
+</a>
+
+</div>
+
+<div class="contact-item">
+
+<h4>Instagram</h4>
+
+<a href="https://instagram.com/Serv_and_protect" target="_blank">
+
+@Serv_and_protect
+
+</a>
+
+</div>
+
+<div class="contact-item">
+
+<h4>Atendimento</h4>
+
+<p>
+24 Horas
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<footer>
+
+<p>
+
+© 2026 Serve And Protect <br>
+
+Segurança • Presença • Proteção
+
+</p>
+
+</footer>
+
+<a
+class="whatsapp"
+href="https://wa.me/5521972862290"
+target="_blank">
+
+✆
+
+</a>
+
+<script>
+
+const observer = new IntersectionObserver((entries)=>{
+
+entries.forEach((entry)=>{
+
+if(entry.isIntersecting){
+
+entry.target.classList.add('show');
+
+}
+
+});
+
+});
+
+document.querySelectorAll('.fade').forEach((el)=>{
+
+observer.observe(el);
+
+});
+
+</script>
+
+</body>
+</html>
